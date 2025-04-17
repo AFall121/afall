@@ -1,0 +1,18 @@
+<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<linearGradient id="linearGradient-bg" x1="0" x2="0" y1="0" y2="48" gradientUnits="userSpaceOnUse">
+
+    <stop offset="0%" stop-color="#8000ff" stop-opacity="1" />
+    <stop offset="50%" stop-color="#50ffff" stop-opacity="1" />
+    <stop offset="100%" stop-color="#ff40d0" stop-opacity="1" />
+    <!-- <stop offset="100%" stop-color="#ffffff" stop-opacity="1" /> -->
+</linearGradient>
+<linearGradient id="linearGradient-text" x1="0" x2="48" y1="0" y2="48" gradientUnits="userSpaceOnUse">
+
+    <stop offset="0%" stop-color="#ff40d0" stop-opacity="1" />
+    <stop offset="50%" stop-color="#50ffff" stop-opacity="1" />
+    <stop offset="100%" stop-color="#8000ff" stop-opacity="1" />
+    <!-- <stop offset="100%" stop-color="#ffffff" stop-opacity="1" /> -->
+</linearGradient>
+<rect width="48" height="48" fill="url(#linearGradient-bg)"></rect>
+<text font-size="24" font-family="sans-serif" fill="url(#linearGradient-text)" x="8" y="36" text-anchor="left">LQ</text>
+</svg>
