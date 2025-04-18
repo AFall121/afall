@@ -2,10 +2,15 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
+editLink: false
+
 hero:
   name: "If I know what love is it,because of you."
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  text: "落叶的痕迹"
+  tagline: 落叶随风将要去何方...
+  image:
+    src: /homehero.jpg
+    alt: 落叶
   actions:
     - theme: brand
       text: Markdown Examples
@@ -15,11 +20,29 @@ hero:
       link: /api-examples
 
 features:
-  - title: Feature A
+  - icon:
+      dark: /shuye_dark.svg
+      light: /shuye_light.svg
+    title: Feature A
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
+  - icon:
+      dark: /shuye_dark.svg
+      light: /shuye_light.svg
+    title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
+  - icon:
+      dark: /shuye_dark.svg
+      light: /shuye_light.svg
+    title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
+## Getting Started
+
+准备启动 `go`!
+
+```sh
+git clone ......
+npm install
+npm run docs:dev
+```
