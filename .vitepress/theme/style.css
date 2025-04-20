@@ -169,7 +169,7 @@ body{
 
 /* 重写某些样式 */
 
-
-.VPNavBarMenuLink[data-v-687a61d0],.text[data-v-ce7cea34]{
+/* 提高选择器的特异性>=原有的特异性才能覆盖样式 */
+.VPLink.VPNavBarMenuLink,button.button>span.text{
   font-size: 22px;
 }
