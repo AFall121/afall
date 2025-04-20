@@ -7,6 +7,6 @@
       <stop offset="100%" stop-color="#ffffff" stop-opacity="1" />
     </linearGradient>
   </defs>
-  <rect width="48" height="48" fill="rgba(22, 194, 229, 1)" />
+  <rect width="48" height="48" fill="rgb(163, 232, 245)" />
   <text x="8" y="36" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="url(#textGradient)">QL</text>
 </svg>

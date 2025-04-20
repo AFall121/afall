@@ -2,7 +2,7 @@
 import { ref,onMounted} from 'vue'
     const currentDateTime = ref(formatDate(new Date()))
     function formatDate(date){
-        const YY = date.getFullYear()
+        const YY = String(date.getFullYear()).slice(-2)
         const MM = String(date.getMonth()+1).padStart(2,'0')
         const DD = String(date.getDate()).padStart(2,'0')
         const hh = String(date.getHours()).padStart(2,'0')

@@ -173,3 +173,12 @@ body{
 .VPLink.VPNavBarMenuLink,button.button>span.text{
   font-size: 22px;
 }
+/* nav中的logo 和 home中的大图标都用的 VPImage */
+.VPImage{
+  border-radius: 50%;
+  box-shadow:  0 0 20px skyblue;
+}
+
+.VPImage.logo + span{
+  font-size:22px;
+}
