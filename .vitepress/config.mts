@@ -9,7 +9,8 @@ console.log(nav);
 // https://vitepress.dev/reference/site-config
 export default defineConfig(
 {
-  title: "AFall Leaves",
+  // title: "AFall Leaves",
+  title: "落叶",
   description: "个人笔记",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -39,6 +40,37 @@ export default defineConfig(
         link: "https://gitcode.com/AFallleaves" 
     },
     ],
+    search:{
+      provider: "local",
+      options: {
+        locales: {
+          zh: {
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档'
+              },
+              modal: {
+                noResultsText: '无法找到相关结果',
+                resetButtonTitle: '清除查询条件',
+                footer: {
+                  selectText: '选择',
+                  navigateText: '切换'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    lastUpdated: {
+      text: '最近更新',
+      formatOptions: {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }
+    },
     footer: {
       message: "夏月影,风悠扬...",
       copyright: "Copyright © From the moment I fell in love with you, to now. AFall Leaves",
