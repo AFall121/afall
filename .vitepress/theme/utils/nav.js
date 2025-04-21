@@ -4,17 +4,21 @@ const nav = [
   // 自定义配置一级导航链接
   { text: "主页", link: "/" },
   {
-    text: "笔记",
+    text: "基础",
     items: [
-      { text: "vue", link: "/notes/vue/" },
-      { text: "react", link: "/notes/react/" },
-      { text: "node", link: "/notes/node/" },
-      { text: "typescript", link: "/notes/typescript/" },
-      { text: "webpack", link: "/notes/webpack/" },
-      { text: "git", link: "/notes/git/" },
+      { text: "vue", link: "/basic/vue/" },
+      { text: "react", link: "/basic/react/" },
+      { text: "node", link: "/basic/node/" },
+      { text: "typescript", link: "/basic/typescript/" },
+      { text: "webpack", link: "/basic/webpack/" },
+      { text: "git", link: "/basic/git/" },
+      { text: "三剑客", link: "/basic/htmlcssjs/" },
     ],
   },
-  { text: "posts", items: [] },
+  {
+    text: "笔记",
+    items: [{ text: "笔记首页", link: "/notes/" }],
+  },
 ];
 
 export default nav;
