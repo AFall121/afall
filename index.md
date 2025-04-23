@@ -13,23 +13,25 @@ hero:
     alt: 落叶
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: NodeJs中文社区
+      link: https://nodejs.cn
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 掘金社区前端
+      link: https://juejin.cn/fronted
 
 features:
   - icon:
       dark: /shuye_dark.svg
       light: /shuye_light.svg
-    title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    title: Markdown教程
+    details: 基本用法
+    link: https://markdown.com.cn/basic-syntax/
   - icon:
       dark: /shuye_dark.svg
       light: /shuye_light.svg
-    title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    title: Vue 官网
+    details: 渐进式 JavaScript 框架
+    link: https://cn.vuejs.org/
   - icon:
       dark: /shuye_dark.svg
       light: /shuye_light.svg

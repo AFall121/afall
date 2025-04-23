@@ -1,7 +1,7 @@
 /* 自定义字体 */
 
-@font-face{
-  font-family: '迷你简行楷';
+@font-face {
+  font-family: "迷你简行楷";
   font-style: normal;
   /* font-weight: 100 900; */
   font-display: swap;
@@ -9,11 +9,8 @@
   /* src: url('./fonts/minijianxingkai.woff2') format("woff2"); */
   /* unicode-range: U+201C, U+201D, U+2018, U+2019, U+2E3A, U+2014, U+2013, U+2026,
   U+00B7, U+007E, U+002F; */
-  unicode-range: U+4E00-U+9FFF;
+  unicode-range: U+4E00- U+9FFF;
 }
-
-
-
 
 /**
  * Customize default theme styling by overriding CSS variables:
@@ -154,13 +151,10 @@
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
-
-
-:root{
-  --vp-font-family-base: '迷你简行楷',sans-serif;
-  --vp-font-family-mono: 'Inter',monospace;
+:root {
+  --vp-font-family-base: "迷你简行楷", sans-serif;
+  --vp-font-family-mono: "Inter", monospace;
 }
-
 
 /* 
 body{
@@ -170,15 +164,117 @@ body{
 /* 重写某些样式 */
 
 /* 提高选择器的特异性>=原有的特异性才能覆盖样式 */
-.VPLink.VPNavBarMenuLink,button.button>span.text{
+.VPLink.VPNavBarMenuLink,
+button.button > span.text {
   font-size: 22px;
 }
 /* nav中的logo 和 home中的大图标都用的 VPImage */
-.VPImage{
+.VPImage {
   border-radius: 50%;
-  box-shadow:  0 0 20px skyblue;
+  box-shadow: 0 0 20px skyblue;
 }
 
-.VPImage.logo + span{
-  font-size:22px;
+.VPImage.logo + span {
+  font-size: 22px;
+}
+
+/* 设置action类的hover样式 */
+/* 注意所谓的夜晚模式,只是切换是否有dark类,而不是白天white,夜晚dark */
+html.dark div[class*="action"]> .VPButton.medium:hover{
+  border: 1px solid #fff
+}
+div[class*="action"]> .VPButton.medium:hover{
+  border: 1px solid #000
+}
+.items .VPFeature:hover{
+  border: 2px solid #0bb0da;
+  transform: scale(105%);
+  box-shadow: 0 0 5px #0bb0da;
+}
+
+html.dark .VPFeature:hover{
+  transform: scale(105%);
+  border: 2px solid #fff;
+  box-shadow: 0 0 5px #fff;
+}
+
+/* 下面两者作用的元素不一样 */
+/* class= language-sh 用box-shadow实现的 */
+.vp-doc div[class*="language-"] {
+  border-radius: 5px;
+  animation: border-flow 10s infinite linear;
+  -webkit-animation: border-flow 10s infinite linear;
+}
+
+/* 用border-image 元素实现但对border-radius有影响 */
+/* .vp-doc div[class*="language-"] pre{
+  border: 3px solid transparent;
+  border-radius: .5px;
+  animation: flow-border 1s infinite linear;
+} */
+
+@keyframes border-flow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px #00ffff;
+  }
+  12.5% {
+    box-shadow: 0 0 5px #00d0ff;
+  }
+  25% {
+    box-shadow: 0 0 5px #40ed94;
+  }
+  37.5% {
+    box-shadow: 0 0 5px #0050ff;
+  }
+  50% {
+    box-shadow: 0 0 5px #0090ff;
+  }
+  62.5% {
+    box-shadow: 0 0 5px #8000ff;
+  }
+  75% {
+    box-shadow: 0 0 5px #d000ff;
+  }
+  87.5% {
+    box-shadow: 0 0 5px #ff00ff;
+  }
+}
+
+@keyframes flow-border {
+  0%,
+  100% {
+    border-image-source: linear-gradient(
+      to right,
+      #00ffff,
+      #00d0ff,
+      #0090ff,
+      #0050ff,
+      #0000ff,
+      #8000ff,
+      #d000ff,
+      #ff00ff
+    );
+    border-image-slice: 1;
+    border-image-width: 1;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+  }
+  50% {
+    border-image-source: linear-gradient(
+      to right,
+      #ff00ff,
+      #d000ff,
+      #8000ff,
+      #0000ff,
+      #0050ff,
+      #0090ff,
+      #00d0ff,
+      #00ffff
+    );
+    border-image-slice: 1;
+    border-image-width: 1;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+  }
 }

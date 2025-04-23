@@ -17,7 +17,10 @@ const nav = [
   },
   {
     text: "笔记",
-    items: [{ text: "笔记首页", link: "/notes/" }],
+    items: [
+      { text: "笔记首页", link: "/notes/" },
+      // { text: "简单", link: "/notes/easy/" }
+    ],
   },
 ];
 

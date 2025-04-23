@@ -43,7 +43,7 @@
         this.arr.push({
           x: e.clientX,
           y: e.clientY,
-          r: Math.random() * 0.5 + 1.5,
+          r: Math.random() * 2 + 1.5,
           td: Math.random() * 4 - 2,
           dx: Math.random() * 2 - 1,
           dy: Math.random() * 1 + 1,
