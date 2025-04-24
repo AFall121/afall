@@ -198,12 +198,36 @@ html.dark .VPFeature:hover{
   box-shadow: 0 0 5px #fff;
 }
 
+/* 给.vp-doc下的标题增加背景色 */
+
 /* 下面两者作用的元素不一样 */
 /* class= language-sh 用box-shadow实现的 */
 .vp-doc div[class*="language-"] {
   border-radius: 5px;
   animation: border-flow 10s infinite linear;
   -webkit-animation: border-flow 10s infinite linear;
+}
+
+/* .vp-doc h1,.vp-doc h2,.vp-doc h3,.vp-doc h4,.vp-doc h5,.vp-doc h6{
+  background-color: #28abf1;
+  color: #00ffff;
+  padding: 0 10px;
+  border-radius: 2px;
+  transition: 1s;
+} */
+.vp-doc h1,.vp-doc h2,.vp-doc h3,.vp-doc h4,.vp-doc h5,.vp-doc h6{
+  background-color: #8f8ff9;
+  color: #000;
+  padding: 0 10px;
+  border-radius: 2px;
+  transition: 1s;
+}
+
+
+
+.vp-doc h1:hover,.vp-doc h2:hover,.vp-doc h3:hover,.vp-doc h4:hover,.vp-doc h5:hover,.vp-doc h6:hover{
+  background-color: #8080C0;
+  color: #fff;
 }
 
 /* 用border-image 元素实现但对border-radius有影响 */
