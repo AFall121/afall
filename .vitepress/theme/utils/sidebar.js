@@ -72,7 +72,7 @@ function getBarForGroup(dir, baseDir) {
   return result;
 }
 export const barForGroup = getBarForGroup(dir,dir)
-console.log('barForGroup:',barForGroup);
+// console.log('barForGroup:',barForGroup);
 
 
 export default getBarForArry(dir, dir)

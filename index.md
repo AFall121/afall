@@ -35,8 +35,24 @@ features:
   - icon:
       dark: /shuye_dark.svg
       light: /shuye_light.svg
-    title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    title: ApiFox
+    details: 前后端一体化接口工具
+    link: https://apifox.com/blog/apifox-tutorial-collection/
+
+  - icon:
+      dark: /shuye_dark.svg
+      light: /shuye_light.svg
+    title: Vtable
+    details: 字节跳动出品的表格插件
+    link: https://visactor.com/vtable
+
+  - icon:
+      dark: /shuye_dark.svg
+      light: /shuye_light.svg
+    title: gitdiagram
+    details: 开源可视化神器
+    link: https://gitdiagram.com/
+
 ---
 
 ## Getting Started

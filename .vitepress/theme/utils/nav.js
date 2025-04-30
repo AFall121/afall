@@ -10,7 +10,7 @@ const nav = [
       { text: "react", link: "/basic/react/" },
       { text: "node", link: "/basic/node/" },
       { text: "typescript", link: "/basic/typescript/" },
-      { text: "webpack", link: "/basic/webpack/" },
+      { text: "tools", link: "/basic/tools/" },
       { text: "git", link: "/basic/git/" },
       { text: "三剑客", link: "/basic/htmlcssjs/" },
     ],

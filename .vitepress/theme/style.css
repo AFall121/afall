@@ -178,6 +178,25 @@ button.button > span.text {
   font-size: 22px;
 }
 
+/* 设置markdown 分割线hr的样式 */
+.vp-doc hr {
+  overflow: visible;
+  height: 30px;
+  border-style: solid;
+  border-color: rgb(143, 142, 244);
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+.vp-doc hr::before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: rgb(143, 142, 244);
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
 /* 设置action类的hover样式 */
 /* 注意所谓的夜晚模式,只是切换是否有dark类,而不是白天white,夜晚dark */
 html.dark div[class*="action"]> .VPButton.medium:hover{
@@ -196,6 +215,12 @@ html.dark .VPFeature:hover{
   transform: scale(105%);
   border: 2px solid #fff;
   box-shadow: 0 0 5px #fff;
+}
+
+/* 设置插件mermaid的父容器的简单样式 */
+.mermaid {
+  border: none;
+  box-shadow: 0 0 10px rgb(130, 129, 195);
 }
 
 /* 给.vp-doc下的标题增加背景色 */

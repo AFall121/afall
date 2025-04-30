@@ -11,6 +11,8 @@
     "vitepress": "^1.6.3"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0"
+    "@types/node": "^22.14.0",
+    "mermaid": "^11.6.0",
+    "vitepress-plugin-mermaid": "^2.0.17"
   }
 }
