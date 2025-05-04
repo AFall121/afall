@@ -71,4 +71,7 @@ git clone ......
 npm install
 npm run docs:dev
 ```
-  测试汉字字体路口圣诞节分配时间耳旁风
+  显示效果大致如下:
+
+![白天效果图](/imgs/白天效果.png)
+![夜晚效果图](/imgs/夜晚效果.png)

@@ -168,7 +168,7 @@ const playSingle = (url, id) => {
       <span class="next" v-show="isFocus" @click="playNext">
         <i class="iconfont icon-next"></i>
       </span>
-      <span style="font-size: 12px" v-show="isFocus" @click="toggleMode">
+      <span style="font-size: 12px;color: #fff;" v-show="isFocus" @click="toggleMode">
         {{ mode.slice(0, 1).toUpperCase() }}
       </span>
     </div>
@@ -178,6 +178,7 @@ const playSingle = (url, id) => {
       </audio>
       <li
         class="single"
+        :class="{ active: single.name === curId }"
         v-for="(single, index) of list"
         @click="playSingle(single.file, single.name)"
       >
@@ -211,7 +212,7 @@ const playSingle = (url, id) => {
   visibility: visible;
 }
 .dark .vt-player > .list {
-  background-color: rgba(143, 143, 249,.1);
+  background-color: #000;
 }
 .single {
   display: inline-flex;
@@ -219,12 +220,12 @@ const playSingle = (url, id) => {
   width: 300px;
   padding: 0.5rem 1.2rem 0;
 }
-.single:hover {
+.single:hover,.active {
   background-color: #fff;
 }
 
-.dark .single:hover {
-  background-color: #000;
+.dark .single:hover,.dark .active {
+  background-color: rgba(143, 143, 249,.8);
 }
 .iconfont {
   color: #11d83c;
@@ -241,7 +242,7 @@ const playSingle = (url, id) => {
   gap: 0px;
   justify-content: space-around;
   padding: 5px 10px;
-  background-color: #8f8ff9;
+  background-color: #000;
   /* border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border-top-right-radius: 5px;
