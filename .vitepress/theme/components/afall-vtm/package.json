@@ -1,0 +1,11 @@
+{
+  "name": "@afallleaves/vt-p-m",
+  "version": "1.0.0",
+  "description": "personal vitepress-music-ball",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

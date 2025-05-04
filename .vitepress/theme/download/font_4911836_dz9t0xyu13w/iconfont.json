@@ -1,0 +1,44 @@
+{
+  "id": "4911836",
+  "name": "music",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "23306839",
+      "name": "next",
+      "font_class": "next",
+      "unicode": "e7ba",
+      "unicode_decimal": 59322
+    },
+    {
+      "icon_id": "23306846",
+      "name": "pause",
+      "font_class": "pause",
+      "unicode": "e7bb",
+      "unicode_decimal": 59323
+    },
+    {
+      "icon_id": "23306853",
+      "name": "play_circled",
+      "font_class": "play_circled",
+      "unicode": "e7bd",
+      "unicode_decimal": 59325
+    },
+    {
+      "icon_id": "23306863",
+      "name": "previous",
+      "font_class": "previous",
+      "unicode": "e7be",
+      "unicode_decimal": 59326
+    },
+    {
+      "icon_id": "23306875",
+      "name": "play",
+      "font_class": "play",
+      "unicode": "e7c1",
+      "unicode_decimal": 59329
+    }
+  ]
+}

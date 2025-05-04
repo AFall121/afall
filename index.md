@@ -53,6 +53,13 @@ features:
     details: 开源可视化神器
     link: https://gitdiagram.com/
 
+  - icon:
+      dark: /shuye_dark.svg
+      light: /shuye_light.svg
+    title: deepwiki
+    details: 开源可视化神器
+    link: https://deepwiki.com/
+
 ---
 
 ## Getting Started
