@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { PropType } from "vue";
-import { ref } from "vue";
-import { onMounted } from "vue";
+import { PropType, ref, onMounted } from "vue";
 
 // 定义列表项的接口
 interface listItem {
@@ -112,6 +110,9 @@ onMounted(() => {
   if (props.list.length > 0) {
     musicurl.value = props.list[0].file || undefined;
     curId.value = props.list[0].name || "";
+    if (audioRef.value) {
+      audioRef.value.loop = true;
+    }
   }
 });
 
@@ -168,7 +169,11 @@ const playSingle = (url, id) => {
       <span class="next" v-show="isFocus" @click="playNext">
         <i class="iconfont icon-next"></i>
       </span>
-      <span style="font-size: 12px;color: #fff;" v-show="isFocus" @click="toggleMode">
+      <span
+        style="font-size: 12px; color: #fff"
+        v-show="isFocus"
+        @click="toggleMode"
+      >
         {{ mode.slice(0, 1).toUpperCase() }}
       </span>
     </div>
@@ -205,7 +210,7 @@ const playSingle = (url, id) => {
   border-radius: 5px;
   overflow: hidden;
   transform: translateY(-100%);
-  background-color: #8f8ff9;
+  background-color: rgba(200, 200, 200,.2);
   transition: 1s visibility ease-out;
 }
 .vt-player > .list:hover {
@@ -220,12 +225,14 @@ const playSingle = (url, id) => {
   width: 300px;
   padding: 0.5rem 1.2rem 0;
 }
-.single:hover,.active {
-  background-color: #fff;
+.single:hover,
+.active {
+  background-color: #8f8ff9;
 }
 
-.dark .single:hover,.dark .active {
-  background-color: rgba(143, 143, 249,.8);
+.dark .single:hover,
+.dark .active {
+  background-color: rgba(143, 143, 249, 0.8);
 }
 .iconfont {
   color: #11d83c;
@@ -248,7 +255,7 @@ const playSingle = (url, id) => {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px; */
   border-radius: 50%;
-  transition: gap 1s ease,border-radius 1s ease-out;
+  transition: gap 1s ease, border-radius 1s ease-out;
 }
 .dark .m-ctr {
   background: #f10404;
@@ -258,7 +265,7 @@ const playSingle = (url, id) => {
   border-radius: 2px;
 }
 
-.m-ctr:hover + .list{
+.m-ctr:hover + .list {
   visibility: visible;
 }
 
