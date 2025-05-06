@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { PropType, ref, onMounted } from "vue";
+import { on } from "events";
+import { random } from "mermaid/dist/utils.js";
+import { buffer } from "stream/consumers";
+import { PropType, ref, onMounted, onUnmounted, reactive } from "vue";
 
 // 定义列表项的接口
 interface listItem {
@@ -102,6 +105,7 @@ const toggleMode = () => {
     playmode(mode.value);
   } else {
     mode.value = modes[0];
+    playmode(mode.value);
   }
 };
 
@@ -113,6 +117,178 @@ onMounted(() => {
     if (audioRef.value) {
       audioRef.value.loop = true;
     }
+  }
+});
+
+// 定义 Ref 类型
+
+const canvas = ref<HTMLCanvasElement | null>(null);
+
+let audioContext: AudioContext | null = null;
+let analyser: AnalyserNode | null = null;
+let source: MediaElementAudioSourceNode | null = null;
+let bufferLength = 0;
+let dataArray: Uint8Array | null = null;
+let animationId: number | null = null;
+let dataIntervalId: NodeJS.Timeout;
+let intervalId: NodeJS.Timeout;
+let loopCount = ref(0);
+let colorPool: CanvasGradient[] = [];
+// let colorPool: string[] = [];
+
+onMounted(() => {
+  // 初始化音频上下文
+  audioContext = new (window.AudioContext ||
+    (window as { [key: string]: any })["webkitAudioContext"])();
+  const dpr = window.devicePixelRatio || 1;
+
+  function resizeCanvas() {
+    // canvas.value!.width = Math.floor(window.innerWidth * dpr);
+    canvas.value!.width = document.documentElement.clientWidth;
+    canvas.value!.height = Math.floor(100 * dpr);
+  }
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+  const audio = audioRef.value;
+  const ctx = canvas.value!.getContext("2d");
+  if (ctx) {
+    ctx.scale(dpr, dpr); // 缩放上下文以保持坐标一致
+  }
+  if (!audio || !ctx) return;
+
+  // 创建分析器
+  analyser = audioContext.createAnalyser();
+  analyser.fftSize = 2048;
+  bufferLength = analyser.frequencyBinCount;
+  dataArray = new Uint8Array(bufferLength);
+
+  // 创建媒体源并连接
+  source = audioContext.createMediaElementSource(audio);
+  source.connect(analyser);
+  analyser.connect(audioContext.destination);
+
+  // 颜色太多，太淡了。。。
+  // function randomColor() {
+  //   const gradient = ctx!.createLinearGradient(0, 0, 0, canvas.value!.height);
+  //   const r = Math.floor(Math.random() * 226 + 30);
+  //   const g = Math.floor(Math.random() * 100 + 156);
+  //   const b = Math.floor(Math.random() * 80 + 176);
+
+  //   gradient.addColorStop(.2, "#fff");
+  //   gradient.addColorStop(1, `rgb(${r},${g},${b})`);
+
+  //   return gradient;
+  // }
+
+  const observer = new MutationObserver(() => {
+    colorPoolUpdate();
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+
+  function randomColor() {
+    const gradient = ctx!.createLinearGradient(0, 0, 0, canvas.value!.height);
+
+    // const num = Math.floor(Math.random() * 3);
+    const isDark = document.documentElement.classList.contains("dark");
+    let colors: string[] = [];
+    if (isDark) {
+      colors = ["#f00404", "#8e8ff9", "#f5f2ed", "pink", "#1296db"];
+    } else {
+      //  colors = ["#f00404", "#8e8ff9", "lime", "pink", "#1296db"];
+      //  colors = ["#00d0d0", "#40ffb0", "#f00404", "#b0ffd0"];
+      colors = [
+        "pink",
+        "#f00",
+        "#00d0d0",
+        "#b0ffd0",
+        "rgba(0,0,0,.8)",
+        "#8e8ff9",
+        "#a030ff",
+      ];
+    }
+    const num = Math.floor(Math.random() * colors.length);
+    gradient.addColorStop(0, "#fff");
+    gradient.addColorStop(0.3, colors[num]);
+    gradient.addColorStop(1, colors[num]);
+    return gradient;
+  }
+  // 每隔一段时间更新颜色池
+  function colorPoolUpdate() {
+    loopCount.value = bufferLength / 10;
+    for (let i = 0; i < loopCount.value; i++) {
+      colorPool[i] = randomColor();
+    }
+  }
+  colorPoolUpdate();
+  dataIntervalId = setInterval(() => {
+    clearInterval(dataIntervalId);
+    colorPoolUpdate();
+  }, 10000);
+  // 频谱绘制函数
+  function draw() {
+    const width = canvas.value!.width;
+    const height = canvas.value!.height;
+    let intervalTime = 200; // 绘制时间间隔为2000ms
+    let x = 0;
+    let gap = 13;
+    const barWidth = width / loopCount.value - gap; // (width / loopCount.value)为bar基础宽度
+    if (animationId) {
+      cancelAnimationFrame(animationId);
+    }
+
+    console.log("draw");
+    // 绘制一次
+    analyser?.getByteFrequencyData(dataArray!);
+    intervalId = setInterval(() => {
+      animationId = requestAnimationFrame(draw);
+      clearInterval(intervalId);
+      ctx!.clearRect(0, 0, width, height);
+      // ctx!.fillStyle = "rgba(255, 255, 255, 0.2)";
+      ctx!.fillStyle = "transparent";
+      ctx!.fillRect(0, 0, width, height);
+
+      for (let i = 0; i < loopCount.value; i++) {
+        ctx!.fillStyle = colorPool[i];
+        const barHeight = dataArray![i];
+
+        ctx!.fillRect(x, height - barHeight / 2, barWidth, barHeight / 2);
+        // // ctx?.beginPath();
+        // ctx?.roundRect(x, height - barHeight / 2, barWidth, barHeight / 2, 10);
+        // ctx?.closePath();
+        // ctx!.fill();
+        x += barWidth + gap;
+      }
+    }, intervalTime);
+  }
+
+  // 开始绘制
+  audio.addEventListener("play", () => {
+    if (!animationId) {
+      draw();
+    }
+  });
+
+  // 恢复音频上下文（应对浏览器自动暂停）
+  document.addEventListener("click", () => {
+    if (audioContext!.state === "suspended") {
+      void audioContext!.resume();
+    }
+  });
+});
+
+onUnmounted(() => {
+  if (animationId) {
+    cancelAnimationFrame(animationId);
+  }
+  if (dataIntervalId) {
+    clearInterval(dataIntervalId);
+  }
+  if (intervalId) {
+    clearInterval(intervalId);
   }
 });
 
@@ -191,6 +367,7 @@ const playSingle = (url, id) => {
         ><span>{{ single?.author }}</span>
       </li>
     </ul>
+    <canvas ref="canvas" width="600" height="200"></canvas>
   </div>
 </template>
 
@@ -210,7 +387,7 @@ const playSingle = (url, id) => {
   border-radius: 5px;
   overflow: hidden;
   transform: translateY(-100%);
-  background-color: rgba(200, 200, 200,.2);
+  background-color: rgba(200, 200, 200, 0.2);
   transition: 1s visibility ease-out;
 }
 .vt-player > .list:hover {
@@ -246,6 +423,7 @@ const playSingle = (url, id) => {
 }
 .m-ctr {
   display: inline-flex;
+  position: relative;
   gap: 0px;
   justify-content: space-around;
   padding: 5px 10px;
@@ -256,6 +434,7 @@ const playSingle = (url, id) => {
   border-bottom-right-radius: 5px; */
   border-radius: 50%;
   transition: gap 1s ease, border-radius 1s ease-out;
+  z-index: 999;
 }
 .dark .m-ctr {
   background: #f10404;
@@ -271,5 +450,12 @@ const playSingle = (url, id) => {
 
 .m-ctr.gap {
   gap: 5px;
+}
+
+canvas {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 666;
 }
 </style>

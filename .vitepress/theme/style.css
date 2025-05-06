@@ -217,6 +217,15 @@ html.dark .VPFeature:hover{
   box-shadow: 0 0 5px #fff;
 }
 
+/* sidebarItem && outlineitem */
+.VPSidebarItem.is-link p.text:hover{
+  color:#fff
+}
+.VPSidebarItem.is-link a:hover p.text:hover{
+  color: #fff;
+  background-color: rgba(0, 0, 0, .2);
+}
+
 /* 设置插件mermaid的父容器的简单样式 */
 .mermaid {
   border: none;
