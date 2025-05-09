@@ -1,15 +1,9 @@
 /* 自定义字体 */
-
 @font-face {
-  font-family: "迷你简行楷";
-  font-style: normal;
-  /* font-weight: 100 900; */
+  font-family: "方正行楷简体";
   font-display: swap;
-  src: url("/fonts/迷你简行楷.woff2") format("woff2");
-  /* src: url('./fonts/minijianxingkai.woff2') format("woff2"); */
-  /* unicode-range: U+201C, U+201D, U+2018, U+2019, U+2E3A, U+2014, U+2013, U+2026,
-  U+00B7, U+007E, U+002F; */
-  unicode-range: U+4E00- U+9FFF;
+  src: url("/fonts/方正行楷简体.woff2") format("woff2");
+    /* url("/fonts/方正行楷简体.ttf") format("truetype"); */
 }
 
 /**
@@ -152,7 +146,7 @@
 }
 
 :root {
-  --vp-font-family-base: "迷你简行楷", sans-serif;
+  --vp-font-family-base: "方正行楷简体", sans-serif;
   --vp-font-family-mono: "Inter", monospace;
 }
 
@@ -199,31 +193,31 @@ button.button > span.text {
 }
 /* 设置action类的hover样式 */
 /* 注意所谓的夜晚模式,只是切换是否有dark类,而不是白天white,夜晚dark */
-html.dark div[class*="action"]> .VPButton.medium:hover{
-  border: 1px solid #fff
+html.dark div[class*="action"] > .VPButton.medium:hover {
+  border: 1px solid #fff;
 }
-div[class*="action"]> .VPButton.medium:hover{
-  border: 1px solid #000
+div[class*="action"] > .VPButton.medium:hover {
+  border: 1px solid #000;
 }
-.items .VPFeature:hover{
+.items .VPFeature:hover {
   border: 2px solid #0bb0da;
   transform: scale(105%);
   box-shadow: 0 0 5px #0bb0da;
 }
 
-html.dark .VPFeature:hover{
+html.dark .VPFeature:hover {
   transform: scale(105%);
   border: 2px solid #fff;
   box-shadow: 0 0 5px #fff;
 }
 
 /* sidebarItem && outlineitem */
-.VPSidebarItem.is-link p.text:hover{
-  color:#fff
-}
-.VPSidebarItem.is-link a:hover p.text:hover{
+.VPSidebarItem.is-link p.text:hover {
   color: #fff;
-  background-color: rgba(0, 0, 0, .2);
+}
+.VPSidebarItem.is-link a:hover p.text:hover {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* 设置插件mermaid的父容器的简单样式 */
@@ -249,7 +243,12 @@ html.dark .VPFeature:hover{
   border-radius: 2px;
   transition: 1s;
 } */
-.vp-doc h1,.vp-doc h2,.vp-doc h3,.vp-doc h4,.vp-doc h5,.vp-doc h6{
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6 {
   background-color: #8f8ff9;
   color: #000;
   padding: 0 10px;
@@ -257,10 +256,13 @@ html.dark .VPFeature:hover{
   transition: 1s;
 }
 
-
-
-.vp-doc h1:hover,.vp-doc h2:hover,.vp-doc h3:hover,.vp-doc h4:hover,.vp-doc h5:hover,.vp-doc h6:hover{
-  background-color: #8080C0;
+.vp-doc h1:hover,
+.vp-doc h2:hover,
+.vp-doc h3:hover,
+.vp-doc h4:hover,
+.vp-doc h5:hover,
+.vp-doc h6:hover {
+  background-color: #8080c0;
   color: #fff;
 }
 

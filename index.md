@@ -60,6 +60,26 @@ features:
     details: 开源可视化神器
     link: https://deepwiki.com/
 
+  - icon: 
+      dark: /shuye_dark.svg
+      light: /shuye_light.svg
+    title: 零代码工具
+    details: 零代码工具
+    link: https://lingdaima.com
+
+  - icon: 
+      dark: /shuye_dark.svg
+      light: /shuye_light.svg
+    title: Inspira UI
+    details: 基于`Vue Nuxt构建`的UI库
+    link: https://inspira-ui.com
+
+  - icon: 
+      dark: /shuye_dark.svg
+      light: /shuye_light.svg
+    title: 无界
+    details: 基于 WebComponent 容器 + iframe 沙箱的微前端框架
+    link: https://wujie-micro.github.io/doc/
 ---
 
 ## Getting Started
