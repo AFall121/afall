@@ -3,7 +3,7 @@
   font-family: "方正行楷简体";
   font-display: swap;
   src: url("/fonts/方正行楷简体.woff2") format("woff2");
-    /* url("/fonts/方正行楷简体.ttf") format("truetype"); */
+  /* url("/fonts/方正行楷简体.ttf") format("truetype"); */
 }
 
 /**
@@ -212,12 +212,17 @@ html.dark .VPFeature:hover {
 }
 
 /* sidebarItem && outlineitem */
-.VPSidebarItem.is-link p.text:hover {
+/* 划过目录的样式 */
+.VPSidebarItem[class*="level-"] > .item > .text:hover {
+  padding-left: 0.5rem;
   color: #fff;
+  background-color: crimson;
 }
-.VPSidebarItem.is-link a:hover p.text:hover {
+/* 划过页面的样式 */
+.VPSidebarItem[class*="level-"].is-link > .item > a.VPLink.link:hover p.text {
+  padding-left: 0.5rem;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgb(107, 105, 237);
 }
 
 /* 设置插件mermaid的父容器的简单样式 */

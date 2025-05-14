@@ -80,6 +80,13 @@ features:
     title: 无界
     details: 基于 WebComponent 容器 + iframe 沙箱的微前端框架
     link: https://wujie-micro.github.io/doc/
+
+  - icon: 
+      dark: /shuye_dark.svg
+      light: /shuye_light.svg
+    title: AI神器大全
+    details: 汇聚了各种AI神器的聚合网站
+    link: https://aishenqi.net
 ---
 
 ## Getting Started
