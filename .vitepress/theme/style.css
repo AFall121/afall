@@ -156,7 +156,20 @@ body{
 } */
 
 /* 重写某些样式 */
-
+/* VPFooter */
+.VPFooter .message,
+.VPFooter .copyright {
+  font-size: 1.2rem;
+  color: transparent;
+  /* background-image: repeating-linear-gradient(-90deg,#0f0 0%,#0f0 30%,#f0f 55%, #6000e0 70%,#6000e0 100%); */
+  background-image: linear-gradient(to right,#f0f 0%,#f0f 30%,#8f8ff9,#000 70%,#000 100%);
+  background-clip: text;
+  text-shadow: 0 0 5px #8f8ff9;
+}
+.dark .message,.dark .copyright {
+  background-image: linear-gradient(45deg,#8f8ff9 0%,#8f8ff9 33%,#f00,#fff 66%,#fff 100%);
+  text-shadow: 0 0 5px #000;
+}
 /* 提高选择器的特异性>=原有的特异性才能覆盖样式 */
 .VPLink.VPNavBarMenuLink,
 button.button > span.text {

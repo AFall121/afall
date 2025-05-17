@@ -4,3 +4,5 @@ posts
 notes
 
 .vitepress/dist
+.vitepress/cache
+

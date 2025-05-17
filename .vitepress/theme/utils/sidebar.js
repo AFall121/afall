@@ -2,7 +2,7 @@ import { readdirSync, statSync } from "node:fs";
 import { join,extname } from "node:path";
 import { findUpSync } from "find-up-simple";
 
-const EXCLUDEDIRS = [".vitepress", "node_modules", "public"];
+const EXCLUDEDIRS = [".vitepress", "node_modules", "public", "components"];
 const EXCLUDEFILES = ["index", "README","package-lock","package","api-examples","markdown-examples"];
 
 function filterFiles(dir){
