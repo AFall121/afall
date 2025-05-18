@@ -8,7 +8,7 @@ import { PropType, ref, onMounted, onUnmounted, reactive } from "vue";
 interface listItem {
   name?: string;
   author?: string;
-  file?: string;
+  url?: string;
 }
 
 // 定义组件属性
@@ -39,7 +39,7 @@ const playRandom = () => {
   if (!audioRef.value) return;
   let randomNum = Math.floor(Math.random() * props.list.length);
   audioRef.value.loop = false;
-  musicurl.value = props.list[randomNum].file || "";
+  musicurl.value = props.list[randomNum].url || "";
   curId.value = props.list[randomNum].name || "";
   audioRef.value.load();
   playorpause();
@@ -70,11 +70,11 @@ const playNext = () => {
     let index = props.list.findIndex((item) => item.name === curId.value) || 0;
     if (index === props.list.length - 1) {
       curId.value = props.list[0].name || "";
-      musicurl.value = props.list[0].file || "";
+      musicurl.value = props.list[0].url || "";
     } else {
       let nextIndex = index + 1;
       curId.value = props.list[nextIndex].name || "";
-      musicurl.value = props.list[nextIndex].file || "";
+      musicurl.value = props.list[nextIndex].url || "";
     }
     audioRef.value?.load();
     playorpause();
@@ -87,11 +87,11 @@ const playPrev = () => {
   if (index === 0) {
     let prevIndex = props.list.length - 1;
     curId.value = props.list[prevIndex]?.name || "";
-    musicurl.value = props.list[prevIndex]?.file || "";
+    musicurl.value = props.list[prevIndex]?.url || "";
   } else {
     let prevIndex = index - 1;
     curId.value = props.list[prevIndex]?.name || "";
-    musicurl.value = props.list[prevIndex]?.file || "";
+    musicurl.value = props.list[prevIndex]?.url || "";
   }
   audioRef.value?.load();
   playorpause();
@@ -112,7 +112,7 @@ const toggleMode = () => {
 // 组件挂载时初始化播放列表
 onMounted(() => {
   if (props.list.length > 0) {
-    musicurl.value = props.list[0].file || undefined;
+    musicurl.value = props.list[0].url || undefined;
     curId.value = props.list[0].name || "";
     if (audioRef.value) {
       audioRef.value.loop = true;
@@ -361,7 +361,7 @@ const playSingle = (url, id) => {
         class="single"
         :class="{ active: single.name === curId }"
         v-for="(single, index) of list"
-        @click="playSingle(single.file, single.name)"
+        @click="playSingle(single.url, single.name)"
       >
         <span>{{ index + 1 }}.{{ single?.name }}</span
         ><span>{{ single?.author }}</span>

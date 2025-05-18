@@ -10,6 +10,7 @@ import { fileURLToPath } from "url";
 export default defineConfig(
   withMermaid({
     // title: "AFall Leaves",
+    base: "/notes/", //我要部署到GitHub上的notes仓库
     title: "落叶",
     description: "个人笔记",
     vite: {
