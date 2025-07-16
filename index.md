@@ -94,6 +94,13 @@ features:
     title: AI神器大全
     details: 汇聚了各种AI神器的聚合网站
     link: https://aishenqi.net
+  
+  - icon: 
+      dark: /shuye_dark.svg
+      light: /shuye_light.svg
+    title: flexboxlabs布局神器
+    details: 可视化flexbox布局
+    link: https://flexboxlabs.netlify.app/
 ---
 
 ## Getting Started
