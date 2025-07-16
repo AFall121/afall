@@ -59,6 +59,13 @@ features:
     title: deepwiki
     details: 开源可视化神器
     link: https://deepwiki.com/
+  
+  - icon:
+      dark: /shuye_dark.svg
+      light: /shuye_light.svg
+    title: 中文版deepwiki
+    details: 开源可视化神器
+    link: https://readmex.com/
 
   - icon: 
       dark: /shuye_dark.svg
