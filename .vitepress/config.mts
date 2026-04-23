@@ -10,7 +10,8 @@ import { fileURLToPath } from "url";
 export default defineConfig(
   withMermaid({
     // title: "AFall Leaves",
-    base: (process.env.VERCEL || process.env.NETLIFY) ? '/' : "/afall/", //我要部署到GitHub上的afall仓库
+    //base: (process.env.VERCEL || process.env.NETLIFY) ? '/' : "/afall/", //我要部署到GitHub上的afall仓库
+    base: process.env.CI ? "/afall/" : "/",
     title: "落叶",
     description: "个人笔记",
     vite: {
@@ -81,8 +82,7 @@ export default defineConfig(
       },
       footer: {
         message: "夏月影,风悠扬...",
-        copyright:
-          "Copyright © From the moment I fell in love with you, to now. AFall Leaves",
+        copyright: "Copyright © From the moment I fell in love with you, to now. AFall Leaves",
       },
     },
     // Mermaid 配置
@@ -95,5 +95,5 @@ export default defineConfig(
     mermaidPlugin: {
       class: "mermaid my-class", // 为父容器设置额外的 CSS 类
     },
-  })
+  }),
 );
