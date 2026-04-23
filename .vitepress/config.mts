@@ -10,7 +10,7 @@ import { fileURLToPath } from "url";
 export default defineConfig(
   withMermaid({
     // title: "AFall Leaves",
-    base: "/afall/", //我要部署到GitHub上的afall仓库
+    base: (process.env.VERCEL || process.env.NETLIFY) ? '/' : "/afall/", //我要部署到GitHub上的afall仓库
     title: "落叶",
     description: "个人笔记",
     vite: {
