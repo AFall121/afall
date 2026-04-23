@@ -27,7 +27,7 @@ const playlist = [
   {
     name: "夜曲",
     author: "周杰伦",
-    url: BASE + "mp3/夜曲.mp3",
+    url: "mp3/夜曲.mp3",
     // url: "https://a.xmcdn.com/storages/0889-audiofreehighqps/DE/22/GKwRIasLeRakABUfdwNgkAU3.m4a?sign=e2093e81e291436a404fd6998bbc882c&buy_key=www2_a8cb4a20-67507954:0&timestamp=1746004044546000&token=3788&duration=226",
   },
   {
