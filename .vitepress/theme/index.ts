@@ -17,7 +17,7 @@ import { h } from "vue";
  * "afall121.github.io/notes/mp3/夜曲.mp3",index.ts这个文件两次"../"后就是在项目根路径下,即
  * 远程的域名下,所以我需要在前面加上"../../"
  */
-const BASE = process.env.CI ? "../../afall/" : "../../";
+const BASE = process.env.VERCEL || process.env.NETLIFY ? "../../" : "../../afall/";
 const playlist = [
   {
     name: "急救室-豪杰春香",
